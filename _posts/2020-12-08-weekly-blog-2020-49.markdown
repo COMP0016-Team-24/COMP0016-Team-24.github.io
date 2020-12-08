@@ -1,0 +1,18 @@
+---
+layout: post
+title: "Weekly development blog 2020-49"
+date: "2020-12-04 19:14:52+00:00"
+categories: weekly
+---
+
+## Learning unity
+
+This week our team continued to work on learning unity. Victoria also made a small bowling game:
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Tr0EYdcwTaI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+## Setting up Alexa test client
+
+Because Brandon wasn't able to get the Alexa skill to work via the offical Alexa API, we used a temporary test solution, which was a python script that communicates with chromium to extract the audio from Amazon's Alexa test page. The Amazon page listens from the microphone and also allow text input, and the audio output is captured via python and sent to unity with websocket.
+
+Brandon used flask and socket.io/engine.io to build the python script, but this has caused some problem for me and Victoria. The C# engine.io client running on unity sends a protocol version of 4, which python complains `The client is using an unsupported version of the Socket.IO or Engine.IO protocols`, since it only expects 2 or 3. We fixed that by patching the python library, and skipped the bit that checks the version. Everything still seems to work, and it is just a temproary solution anyway, so we settled with that.

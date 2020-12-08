@@ -11,6 +11,6 @@ This week, most of the team's focus was on learning unity, since none of us are 
 
 During the learning process, one of us built a simple game:
 
-<iframe width="560" height="315" style="display: block; margin: 0 auto;" src="https://www.youtube.com/embed/-wekBCWzQOk" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/-wekBCWzQOk" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 We also dived into the project's existsing unity code and learned about how it currently works.

@@ -2,3 +2,8 @@ img.center {
 	display: block;
 	margin: 0 auto;
 }
+
+iframe {
+	margin: 20px auto;
+	display: block;
+}
