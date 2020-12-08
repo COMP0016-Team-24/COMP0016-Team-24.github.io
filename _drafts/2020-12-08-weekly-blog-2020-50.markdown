@@ -1,0 +1,10 @@
+---
+layout: post
+title: "Weekly development blog 2020-50"
+date: "2020-12-08 15:50:55+00:00"
+categories: weekly
+---
+
+## Project website
+
+// Mention SCSS and Parcel bundler.
