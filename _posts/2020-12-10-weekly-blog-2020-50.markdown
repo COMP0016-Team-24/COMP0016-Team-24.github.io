@@ -1,0 +1,43 @@
+---
+layout: post
+title: "Weekly development blog 2020-50"
+date: "2020-12-10 22:15:35+00:00"
+categories: weekly
+---
+
+## Project website
+
+In addition to the project itself and this blog, we also have to make a project website, which is currently hosted on UCL's server:
+
+<div style="text-align: center; font-size: 24px; margin: 10px 0;">
+<a href="https://students.cs.ucl.ac.uk/2020/group24/index.html">Website link</a>
+</div>
+
+UCL's requirement is a static HTML website. However, we decided to use a javascript and css bundler [Parcel](https://github.com/parcel-bundler/parcel). This allow us to write [SASS](https://sass-lang.com/), which have a nicer syntax and allows easier sub element styling, instead of plain CSS.
+
+Virtually no set up is required for the bundler. For example, to test the website locally, we just have to run `parcel serve index.html`. We built two npm scripts - `build` and `serve`, to allow easy development and publishing (which is done via `scp`ing the built website into UCL's server).
+
+To illustrate the point, here is a snippet of our CSS code:
+
+```sass
+.nav
+  margin: 0 auto 30px auto
+  text-align: center
+  max-width: 600px
+  > a
+    font-size: 18px
+    margin: 0 5px
+    padding: 6px
+    &.current
+      color: $color-text
+      font-weight: bold
+      &:hover
+        color: $color-text
+
+```
+
+And what it compiles into:
+
+```css
+.nav{margin:0 auto 30px;text-align:center;max-width:600px}.nav>a{font-size:18px;margin:0 5px;padding:6px}.nav>a.current{color:#444;font-weight:700}.nav>a.current:hover{color:#444}
+```
