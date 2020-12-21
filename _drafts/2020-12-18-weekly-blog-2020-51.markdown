@@ -9,6 +9,24 @@ categories: weekly
 
 Currently all the cache files produced by Unity are tracked by git, because we did not have a proper `.gitignore` file for Unity. This resulted in thousands of changes seen in `git status` and the vscode git panel, and if developers blindly commit everything this could easily led to merge conflicts, which is undesirable. Hence, we downloaded the GitHub's [official gitignore file for Unity](https://github.com/github/gitignore/blob/master/Unity.gitignore). We also did a `git ls-files -i --exclude-standard | xargs git rm --cached` to remove all the existing committed garbage files.
 
+## Project management
+
+NTT Data instructed us to manage the project tasks in their Microsoft Teams team via the Plan App. We roughly sorted this out earlier together with Brandon, and this week we will begin using it for our first set of tasks. Here is a peak of what it looks like:
+
+<a href="/assets/images/ms-team-plan-peak.png"><img src="/assets/images/ms-team-plan-peak.png" style="max-width: 100%; display: block; margin: 10px auto;"></a>
+
+Our tasks this weeks are: (done concurrently by 3 people)
+
+- Better video player animation
+- Weather background
+- Menu screen
+
 ## Video player slide in animation
 
-// Learning about Unity anima
+Because I have never done any unity development before, naturally I spent some time learning how to properly control animations in Unity. I decided that I would use a [Animator](https://docs.unity3d.com/Manual/class-Animator.html) - a common Unity component that allows you to write your animation triggering logic in terms of a state machine:
+
+<img src="/assets/images/unity-animator-state-machine.png" class="center">
+
+A video demo for the animation I made:
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/m-lBv1Xaueo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
