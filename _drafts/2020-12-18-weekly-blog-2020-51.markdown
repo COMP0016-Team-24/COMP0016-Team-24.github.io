@@ -37,6 +37,6 @@ For this to work, I had to research how to receive information from APIs in Unit
 
 Following this, I had to research how to only extract the required information from the JSON received from the API. From what I researched, in Unity you can define a class that essentially represents the JSON as an object then use [JsonUtility.FromJson](https://docs.unity3d.com/ScriptReference/JsonUtility.FromJson.html) to create the object. Although this seemed extremely long considering the JSON from the API contained lots of information. I found an open source plugin called [SimpleJSON](https://github.com/Bunny83/SimpleJSON) which allowed me to just extract the weather from the JSON. Currently, the Virtual Assistant simply prints the weather to the console as shown:
 
-<img src="/assets/images/weather-console-log.png" class="center"></a>
+<img src="/assets/images/weather-console-log.PNG" class="center"></a>
 
 Following this I will need to implement a response from Unity which will require me to create new skyboxes and figure out how to change them depending on the weather condition.
