@@ -1,0 +1,14 @@
+---
+layout: post
+title: "Weekly development blog 2020-52"
+date: "2020-12-27T20:00:00+00:00"
+categories: weekly
+---
+
+## Changing background to reflect the weather
+
+This week, I implemented the weather appearances into the Unity project. For a simpler system, I grouped a couple of the [weather conditions](https://openweathermap.org/weather-conditions) together. I classified "Thunderstorm", "Drizzle" and "Rain" to be "Rain". "Clouds" and "Snow" remain the same and anything else (i.e. "Clear" and anything under the Atmosphere group) was classfied as "Clear". So the background can only change between 4 states: "Clear", "Clouds", "Rain" and "Snow". For "Clear", I simply used the default skybox to represent it. For the other 3 weather states, I used a free asset, [AllSky](https://assetstore.unity.com/packages/2d/textures-materials/sky/allsky-free-10-sky-skybox-set-146014), which gave me a skybox to use for clouds. I then created [ParticleSystem](https://docs.unity3d.com/ScriptReference/ParticleSystem.html)s to represent raindrops and snow. I simply altered the colour and shapes slightly to achieve the effect. Here is a video which shows the system cycling through the various weather states with 5 second intervals:
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/huLb1ZhosqY" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+I also modified the code so it calls the API every 10 minutes (value can be modified). 

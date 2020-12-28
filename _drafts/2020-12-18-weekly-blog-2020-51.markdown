@@ -39,4 +39,4 @@ Following this, I had to research how to only extract the required information f
 
 <img src="/assets/images/weather-console-log.PNG" class="center">
 
-Following this I will need to implement a response from Unity which will require creation of new skyboxes and figuring out how to change them depending on the weather condition.
+Next week, I will need to implement a response from Unity which will require creation of new skyboxes and figuring out how to change them depending on the weather condition.
