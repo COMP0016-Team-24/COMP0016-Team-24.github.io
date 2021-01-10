@@ -31,7 +31,7 @@ A video demo for the animation I made:
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/m-lBv1Xaueo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-## Changing background to reflect the weather
+## Victoria: Changing background to reflect the weather
 
 For this to work, I had to research how to receive information from APIs in Unity and I found that I could use [UnityWebRequest](https://docs.unity3d.com/ScriptReference/Networking.UnityWebRequest.html). I then had to find a weather API to use. Originally I decided to use [WeatherAPI](https://www.weatherapi.com/) as I could get realtime weather of a location specified but I later found that the weather information was too complex for our needs with many different types of [weather conditions](https://www.weatherapi.com/docs/weather_conditions.json) that also changed depending on whether it is day or night. I found [OpenWeatherMap](https://openweathermap.org/) to be more suitable as its [weather conditions](https://openweathermap.org/weather-conditions) all have a "main" weather name. To clarify in WeatherAPI, for clouds the weather name could be "partly cloudy" or "cloudy" but in OpenWeatherMap they would both be classified as "Clouds".
 
