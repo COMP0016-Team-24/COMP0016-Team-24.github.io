@@ -5,6 +5,8 @@ date: "2020-10-30 22:52:07+00:00"
 categories: dev problem-solving
 ---
 
+(Authored by: Tingmao)
+
 ## Background
 
 The existing virtual assistence relies on Alexa, and contains python code that interacts with the Alexa python library, which in terms handles recording and playing of audio. It appears that this is done with ALSA command line utilities (`aplay` and `arecord`).

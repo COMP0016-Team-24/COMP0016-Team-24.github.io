@@ -9,7 +9,7 @@ PS. The "48" here means the 48th week of 2020.
 
 This week, most of the team's focus was on learning unity, since none of us are familiar with it yet. Unity is used to build the project's avatar display front-end.
 
-During the learning process, one of us built a simple game:
+During the learning process, Tingmao built a simple game:
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/-wekBCWzQOk" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 

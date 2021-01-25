@@ -4,6 +4,9 @@ title: "Writing a blog article"
 date: "2020-10-15T19:42:23.546Z"
 categories: meta
 ---
+
+(Authored by Tingmao)
+
 This blog is built on a static site generator called Jekyll. It converts markdown files into html files, resulting in a whole static html website, which is then hosted by GitHub.
 
 ## Creating posts

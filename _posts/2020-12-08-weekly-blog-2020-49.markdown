@@ -11,7 +11,7 @@ This week our team continued to work on learning unity. Victoria also made a sma
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/Tr0EYdcwTaI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-## Setting up Alexa test client
+## Tingmao: Setting up Alexa test client
 
 Because Brandon wasn't able to get the Alexa skill to work via the offical Alexa API, we used a temporary test solution, which was a python script that communicates with chromium to extract the audio from Amazon's Alexa test page. The Amazon page listens from the microphone and also allow text input, and the audio output is captured via python and sent to unity with websocket.
 

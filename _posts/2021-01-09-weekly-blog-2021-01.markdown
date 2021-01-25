@@ -5,7 +5,7 @@ date: "2021-01-09T16:14:10+00:00"
 categories: weekly
 ---
 
-## Supporting vertical screens
+## Tingmao: Supporting vertical screens
 
 Our client just told us that the assistent needs to be able to run on vertical screens, and preferably support screen-rotation on the go. As such, I have re-made some of the video player animation and make them adopt to screen aspect ratio.
 
