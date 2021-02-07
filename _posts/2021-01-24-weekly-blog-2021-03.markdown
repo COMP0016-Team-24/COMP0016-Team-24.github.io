@@ -1,0 +1,32 @@
+---
+layout: post
+title: "Weekly development blog 2021-03"
+date: "2021-01-24T23:38:38+00:00"
+categories: weekly
+---
+
+## Tingmao: investigated how current lip-sync works
+
+The lip sync made by Brandon is actually quite simple - about every 100ms (depending on the sound being made), it tells the animator to do a cross-fade between the existing state and a new state that corrosponds to the required lip shape. The unity-chan asset we are using already has all these mouse-shape states set up (MTH_A, MTH_E, etc.), and they basically just control a bunch of weights for the face skin's shape keys.
+
+Since we need our avatar to support other models, those models either needs to already has those shape-keys, or one of us would have to model these shapes by deforming the mouth. The current model is extremely well-made with very accurate mouth-shapes as well as gemoetry for the inner mouth, but my guess is that, at least for an anime style avatar, simply making the inner mouth a red background and making the mouth "hole" the correct shape would be enough for this project.
+
+We are still to find any suitable models.
+
+## Victoria: face tracking movements experiments
+
+Following a meeting with the client earlier in the week, I was asked to make the rotation of the 3D model more extreme in the sense that when the user is standing far left from the screen, the 3D model will rotate more than it currently does. I also experimented with simply rotating only the neck which made it look a bit more natural. Here is a video demo:
+
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/nuV0vodrZnE" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+## Victoria: supporting landscape and horizontal orientations
+
+A requirement the client had added was to ideally have the application be able to support both orientations. Since when the resolution of the screen is changed, Unity just crops the scene to fit the screen, when in portrait mode the view was very zoomed in and the speech bubbles would be cropped out. To fix this, I created another camera and moved it back. Then a script would identify if the screen is in portrait or landscape mode and activate the correct camera.
+
+Landscape:
+<img src="/assets/images/landscape.png" class="center">
+
+Portait:
+<img src="/assets/images/portrait.png" class="center">
+
+I encountered a problem where if the user switches their screen resolution (e.g. 1920x1080 to 1080x1920) after the built executable is launched, the screen sets its aspect ratio to 1:1 and the change is irreversible - even when launching the executable again it will still have the same problem. Although the problem can be avoided by closing the application before changing screen resolution, it's not ideal.

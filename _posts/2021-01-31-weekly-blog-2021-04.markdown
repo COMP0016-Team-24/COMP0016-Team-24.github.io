@@ -1,0 +1,12 @@
+---
+layout: post
+title: "Weekly development blog 2021-04"
+date: "2021-01-31T16:50:43+00:00"
+categories: weekly
+---
+
+## Victoria: supporting landscape and horizontal orientations continued
+
+Through some testing, I managed to fix the bug from last week. The bug was caused by changing the screen resolution after the application had started up and was fixed by unticking the 'run in background' option in the build settings. My code from last week only checked on startup if the screen resolution is landscape or portrait so it didn't change the cameras if screen resolution was changed when the application was running. I simply added an if-else check to see if the screen resolution had changed - if it does, the camera will switch accordingly.
+
+<img src="/assets/images/build_settings.png" class="center">

@@ -1,0 +1,14 @@
+---
+layout: post
+title: "Weekly development blog 2021-02"
+date: "2021-01-17T17:00:00+00:00"
+categories: weekly
+---
+
+## Victoria: Smoothing the face tracking movements
+
+This week, I was tasked with making the avatar's face tracking more smooth. The face tracking is done through an external library called [OpenCV plus Unity](https://assetstore.unity.com/packages/tools/integration/opencv-plus-unity-85928). At first, I thought the problem was in the face tracking script itself but I later established it was just the way the response from the 3D model was scripted. Previously, it received a rotation from the face tracking script and then set the rotation of the 3D model to the same angle. However this created a somewhat rigid effect where the 3D model would switch between each rotation with no transition.
+
+I first tried to increase the number of rotations the model could rotate to but this did not fix the rigidness. Instead of setting the rotation of the model to exactly the same as the angle received from the face tracking script, I made it rotate in that direction if it is less than/greater than the angle. Unity's rotation scripting numbers are different to the numbers shown in the inspector which made it quite confusing for me to debug. Originally the model kept rotating in circles, I realised this was because using eulerangles created an angle between 0 and 360 whereas the rotation of the model should be between 15 and -15. I fixed it by simply subtracting 360 from the rotation if the rotation of the model was greater than 180. Here is a video showcasing the model tracking now:
+
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/wvcWTohqqtE" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
