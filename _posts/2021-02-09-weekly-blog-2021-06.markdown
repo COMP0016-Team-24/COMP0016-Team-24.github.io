@@ -1,0 +1,56 @@
+---
+layout: post
+title: "Weekly development blog 2021-06"
+date: "2021-02-09T14:36:05+00:00"
+categories: weekly
+---
+
+## Tingmao: Python, Flask and socket.io/engine.io
+
+In [2020-49]({% post_url 2020-12-08-weekly-blog-2020-49 %}) I talked about setting up the test alexa client that's built with python and `flask-socketio`. After updating those python dependencies, they allow protocol version 4 now. However, the server doesn't actually work. Even if I remove anything Alexa specific and just run a very basic server that repeat the same message, when I poll the server with curl, nothing shows up. The python file I used to test this is listed below:
+
+```python
+from flask import Flask, send_file
+from flask_socketio import SocketIO, emit
+
+app = Flask(__name__)
+socketio = SocketIO(app)
+
+def get_alexa_output():
+    global socketio
+    while True:
+        socketio.emit("message", "ping")
+        print(".")
+        socketio.sleep(0.01)
+
+socketio.start_background_task(target=get_alexa_output)
+socketio.run(app)
+```
+
+The expected behaviour of this file is that it will send a message with the text `ping` to clients in a loop. I used the following curl command to test the socket.io server:
+
+```bash
+curl 'http://localhost:5000/socket.io/?EIO=4&transport=polling'
+curl 'http://localhost:5000/socket.io/?EIO=4&transport=polling&sid=...'
+```
+
+where the `...` is replaced with the `sid` returned by the first command. Second curl call prints nothing for a while, then ends with a 2, which according to [the protocol](https://github.com/socketio/engine.io-protocol) means a ping request. This is probably the server requesting a pong from the client to test the connection state, which is not relevant here.
+
+I also tried to set up this server with a new python environment in docker, and the result is the same, suggesting that the flask-socket.io dependency might itself be broken.
+
+I then tried instead to set up a server in node.js, with the following script:
+
+```javascript
+const engine = require('engine.io');
+const server = engine.listen(5000);
+
+server.on('connection', socket => {
+  socket.send("hello");
+});
+```
+
+Using curl, I can actually see the server sending the message, which means that my testing approach is correct.
+
+Originally this problem only occured to me, but recently the test alexa client stopped working for the two other member and also Brandon as well, likely because they also updated their python dependencies (perhaps inadvertently). The cloud server hosting the skills also used flask and used `flask-socketio` to send messages to unity clients, but last week we migrated and reinstalled the server due to Brandon running out of free compute credits, and now our unity frontend isn't able to connect to the cloud server via socket.io as well.
+
+After spending 4 hours trying to fix the python code I was not able to make any progress. Since the problem is occurring for other people as well currently, Brandon is looking into converting everything to just use raw WebSocket.
