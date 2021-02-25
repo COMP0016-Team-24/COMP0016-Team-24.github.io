@@ -7,7 +7,7 @@ categories: weekly
 
 ## Tingmao: Python, Flask and socket.io/engine.io
 
-In [2020-49]({% post_url 2020-12-08-weekly-blog-2020-49 %}) I talked about setting up the test alexa client that's built with python and `flask-socketio`. After updating those python dependencies, they allow protocol version 4 now. However, the server doesn't actually work. Even if I remove anything Alexa specific and just run a very basic server that repeat the same message, when I poll the server with curl, nothing shows up. The python file I used to test this is listed below:
+In [2020-49]({% post_url 2020-12-06-weekly-blog-2020-49 %}) I talked about setting up the test alexa client that's built with python and `flask-socketio`. After updating those python dependencies, they allow protocol version 4 now. However, the server doesn't actually work. Even if I remove anything Alexa specific and just run a very basic server that repeat the same message, when I poll the server with curl, nothing shows up. The python file I used to test this is listed below:
 
 ```python
 from flask import Flask, send_file
