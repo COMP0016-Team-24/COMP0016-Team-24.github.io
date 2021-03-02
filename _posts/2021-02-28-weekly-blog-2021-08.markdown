@@ -1,0 +1,16 @@
+---
+layout: post
+title: "Weekly development blog 2021-08"
+date: "2021-02-28T23:32:48+00:00"
+categories: weekly
+---
+
+## Tingmao: Integreating a new avatar
+
+![Screenshot of new avatar](/assets/images/new-avatar.png)
+
+After some searching I decided to use [this free anime character](https://assetstore.unity.com/packages/3d/characters/humanoids/casual-1-anime-girl-characters-185076).
+
+Fortunately, face-tracking scripts run on a separate entity, and I just had to attach the `player.cs` script onto the new avatar entity, and rotation will work for the new avatar.
+
+As for lip-sync, the new avatar supports several different mouth shapes, but they are not grouped into IPA-syllables, and there is also no way to make the avatar properly close their teeth or control the tongue for sounds like ð or ʃ, so I did my best to make it look convincing without involving additional modelling work.
