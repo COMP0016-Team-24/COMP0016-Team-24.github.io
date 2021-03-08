@@ -1,0 +1,10 @@
+---
+layout: post
+title: "Weekly development blog 2021-10"
+date: "2021-03-08T23:29:58+00:00"
+categories: weekly
+---
+
+## Tingmao: Easier setup part 1 - Skill server
+
+One of our requirement is to "simplify the setup process". Currently in order to get the skill server running user has to do a lot of work manually, including installing python dependencies and getting a certificate from Let's Encrypt. I have wrote a set-up script and a `Dockerfile` that does all of the above, and now user just need to run `./configure.sh <their-domain>` and `./start.sh` in any new debian VM to get the skill server running.
