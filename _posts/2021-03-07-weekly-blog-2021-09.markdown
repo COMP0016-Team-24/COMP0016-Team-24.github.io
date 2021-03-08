@@ -1,0 +1,25 @@
+---
+layout: post
+title: "Weekly development blog 2021-09"
+date: "2021-03-07T18:38:38+00:00"
+categories: weekly
+---
+
+## Tingmao: Alexa client
+
+It became apparent this week that we simply can't use the test client on production, even though we had no other working solution. Specifically, the test alexa client page requires user to press down on the mic icon to speak to Alexa (as opposed to doing any sort of hot word detection), and user must release the mic when they finish speaking to let Alexa process the response. This means that we either have to implement both hot-word detection and speech-finish detection ourself, or find an alternative Alexa client for the project.
+
+Some weeks ago, Brandon had some success running the [official C++ client](https://github.com/alexa/avs-device-sdk/tree/master/SampleApp). However, when he tried to write the response audio data to an external file, the audio file come out corrupted. I tried to set up the client myself and asked Brandon for the code he used to hook and export the audio response, and I realized what's wrong before after looking at the code:
+
+```cpp
+std::ofstream out("result.mp3");
+// ...
+out.write(buf, len);
+// ...
+```
+
+As it turns out, C++'s `ofstream` default to text mode, which will cause line terminators to be convered to the platform native format. However, our audio data (which is mp3) is obviously not text data, so we need to supress this behaviour. Changing the first line to:
+```cpp
+std::ofstream out("result.mp3", std::ios::binary);
+```
+eventually solved the problem.
