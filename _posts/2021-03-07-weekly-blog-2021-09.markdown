@@ -23,3 +23,7 @@ As it turns out, C++'s `ofstream` default to text mode, which will cause line te
 std::ofstream out("result.mp3", std::ios::binary);
 ```
 eventually solved the problem.
+
+## Victoria: Website updating
+
+This week, I updated the [website](https://students.cs.ucl.ac.uk/2020/group24/index.html) with our new requirements and added some more content to the home page - including a Gantt chart for our progress. I also added the personas, sketches and prototype from our HCI assignment and created a use case diagram and list.

@@ -1,0 +1,12 @@
+---
+layout: post
+title: "Weekly development blog 2021-07"
+date: "2021-02-16T23:00:32+00:00"
+categories: weekly
+---
+
+## Victoria: face tracking movements
+
+Using the`Rotator.cs` class which Brandon created allowed me to rotate the avatar's head by doing `Rotator.Rotate()`. When getting the rotation of the avatar, it was not 0 when facing straight forwards so I had to store the starting angle and subtract that from the values so the avatar rotation values would be negative in one direction and positive in the other. Here is a demo:
+
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/ysCDocg1ctQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>

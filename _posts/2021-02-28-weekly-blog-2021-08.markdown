@@ -5,7 +5,7 @@ date: "2021-02-28T23:32:48+00:00"
 categories: weekly
 ---
 
-## Tingmao: Integreating a new avatar
+## Tingmao: Integrating a new avatar
 
 ![Screenshot of new avatar](/assets/images/new-avatar.png)
 

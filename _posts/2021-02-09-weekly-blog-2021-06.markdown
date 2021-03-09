@@ -54,3 +54,10 @@ Using curl, I can actually see the server sending the message, which means that 
 Originally this problem only occured to me, but recently the test alexa client stopped working for the two other member and also Brandon as well, likely because they also updated their python dependencies (perhaps inadvertently). The cloud server hosting the skills also used flask and used `flask-socketio` to send messages to unity clients, but last week we migrated and reinstalled the server due to Brandon running out of free compute credits, and now our unity frontend isn't able to connect to the cloud server via socket.io as well.
 
 After spending 4 hours trying to fix the python code I was not able to make any progress. Since the problem is occurring for other people as well currently, Brandon is looking into converting everything to just use raw WebSocket.
+
+
+## Victoria: face tracking movements adjustments and setting up the Azure VM
+
+In a meeting with the client last week, I demonstrated the movement with just the head and the client suggested I use a mix of both. For example if there are only slight rotations then only the head moves but if the avatar needs to rotate more, the body will rotate too. I was able to get this working but only through disabling the animator on the avatar game object as I am unsure why the avatar does not rotate its neck through `gameObject.transform.Rotate`.
+
+I also set up an Azure VM to deploy the Alexa API. For the most part, I was able to follow the [user manual](https://students.cs.ucl.ac.uk/2019/group24/index.html#appendices) from last year's group but there were a few extra steps needed such as adding an inbound rule.
