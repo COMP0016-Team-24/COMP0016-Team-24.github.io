@@ -1,0 +1,28 @@
+---
+layout: post
+title: "Weekly development blog 2021-10"
+date: "2021-03-14T01:09:25+00:00"
+categories: weekly
+---
+
+## Tingmao: Easier setup part 1 - Skill server
+
+One of our requirement is to "simplify the setup process". Currently in order to get the skill server running user has to do a lot of work manually, including installing python dependencies and getting a certificate from Let's Encrypt. I have wrote a set-up script and a `Dockerfile` that does all of the above, and now user just need to run `./configure.sh <their-domain>` and `./start.sh` in any new debian VM to get the skill server running.
+
+## Tingmao: getting pyaudio on Windows
+
+I and another team member both had difficulty installing the `pyaudio` pip module on Windows because of compilation issue (looks like missing portaudio header files, and I don't know a lot about compiling stuff on Windows). I found a [website](https://www.lfd.uci.edu/~gohlke/pythonlibs/#pyaudio) that has some pre-compiled pip package of `pyaudio` as well as other packages, and installing the package there worked well.
+
+## Tingmao: Easier setup part 2 - attempt at packaging the AVS client
+
+Ideally the end user should not be asked to install things like python and mingw in order to run our software. However, I was not able to get the AVS client to run without adding the mingw64 root directory to my `PATH`. I tried copy-ing over the binaries and library files, but in the end this is what I got:
+
+![](/assets/images/2021-10-tingmao-avs-error.png)
+
+As for python, we could use something like [PyInstaller](https://www.pyinstaller.org/) and package our pip dependencies somehow, but if we would need to ask user to install mingw themselves, we might as well ask them to install Python. As Brandon puts it, "its already easier than setting up virtualbox" which is what the previous year's end product required.
+
+## Tingmao: video player fixes
+
+Some months ago Brandon made the API server download video from YouTube when it needs to serve the video to the unity client. This has stopped working now (library throwing error) and frankly in my opinion, is just not necessary. I downloaded all 3 videos from YouTube to my computer, then uploaded them to my personal public S3 bucket, and updated the API server to use those URL instead. For example, the "about NTT Data" video now can be fetched from [https://mw-public-data.s3.eu-west-2.amazonaws.com/613ad8d53cc7695cf01e74ebdb813d4879fb37e55290186e2175440841df21e2/nttdata-about.mp4](https://mw-public-data.s3.eu-west-2.amazonaws.com/613ad8d53cc7695cf01e74ebdb813d4879fb37e55290186e2175440841df21e2/nttdata-about.mp4).
+
+For now I just coded unity to stream from this S3 bucket. If necessary we can look at embedding the video files as an asset later on, so that it doesn't need to be downloaded from network each time user wants to watch it.
