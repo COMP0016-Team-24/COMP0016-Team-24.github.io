@@ -17,7 +17,7 @@ In following discussions, the client asked for some items on the desk to give it
 
 Due to the more zoomed in camera view, I wrote a script to adjust the position of the bubbles which adjust to the landscape/portait modes accordingly so they are still visible and within view.
 
-Here are the images:
+Here are some images to show the changes:
 
 <img src="/assets/images/ui_change_landscape.png" style="max-width:50%; display: block; margin: 10px auto;">
 <img src="/assets/images/ui_change_portrait.png" style="max-width:50%; display: block; margin: 10px auto;">
