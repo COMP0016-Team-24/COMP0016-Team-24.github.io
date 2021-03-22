@@ -1,0 +1,23 @@
+---
+layout: post
+title: "Weekly development blog 2021-11"
+date: "2021-03-21T11:54:13+00:00"
+categories: weekly
+---
+
+## Victoria: UI changes
+
+Earlier in the week, the client requested some UI changes. Firstly, to include branding in the interface and secondly, to adjust the view so the focus is on the upper body of the 3D avatar model to focus more on the lip syncing/head turning. I gave the client some sketches for ideas on how the brand could be shown:
+
+<img src="/assets/images/sketches.PNG" style="max-width: 100%; display: block; margin: 10px auto;">
+
+The table I decided to use is a free asset from the Unity store: [Low Poly Office Props](https://assetstore.unity.com/packages/3d/environments/low-poly-office-props-lite-131438). The material used to create a wood texture is from [here](https://assetstore.unity.com/packages/2d/textures-materials/wood/pbr-log-149788). The logo is added by creating an empty game object and adding Unity's [sprite renderer](https://docs.unity3d.com/Manual/class-SpriteRenderer.html) component to it. 
+
+In following discussions, the client asked for some items on the desk to give it more perspective so I used a few prefabs provided by the Low Poly Office Props asset. The client also requested the bubbles be more transparent and aligned better so I made these minor changes as well.
+
+Due to the more zoomed in camera view, I wrote a script to adjust the position of the bubbles which adjust to the landscape/portait modes accordingly so they are still visible and within view.
+
+Here are the images:
+
+<img src="/assets/images/ui_change_landscape.png" style="max-width:50%; display: block; margin: 10px auto;">
+<img src="/assets/images/ui_change_portrait.png" style="max-width:50%; display: block; margin: 10px auto;">
