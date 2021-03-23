@@ -11,7 +11,7 @@ This week our team continued to work on learning unity. Victoria also made a sma
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/Tr0EYdcwTaI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-<iframe width="560" height="315" src="https://youtu.be/sGClAMgkRuY" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/watch?v=sGClAMgkRuY" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ## Tingmao: Setting up Alexa test client
 
