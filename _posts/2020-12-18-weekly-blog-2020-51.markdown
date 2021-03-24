@@ -40,3 +40,9 @@ Following this, I had to research how to only extract the required information f
 <img src="/assets/images/weather-console-log.PNG" class="center">
 
 Next week, I will need to implement a response from Unity which will require creation of new skyboxes and figuring out how to change them depending on the weather condition.
+
+## Kaloyan: Menu screen
+
+Since the assistant is voice controlled the menu cannot be an ordinary one, where the user just clicks on the option they want. What I came up with as a solution is for it to be in the form of speech bubbles with some of the main functionalities of the assistant and suggesting what the user can say to use them. This is a picture of what the menu looked like:
+
+<img src="/assets/images/2020-51-bubbles.png" class="center">
