@@ -30,3 +30,7 @@ Portait:
 <img src="/assets/images/portrait.png" class="center">
 
 I encountered a problem where if the user switches their screen resolution (e.g. 1920x1080 to 1080x1920) after the built executable is launched, the screen sets its aspect ratio to 1:1 and the change is irreversible - even when launching the executable again it will still have the same problem. Although the problem can be avoided by closing the application before changing screen resolution, it's not ideal.
+
+## Kaloyan: Navigation intent
+
+This week I started getting familiar with the Alexa intents and the way the existing code handles them in our assistant. I also started working on the navigation intent and made it able to give you directions to a small number of rooms.
