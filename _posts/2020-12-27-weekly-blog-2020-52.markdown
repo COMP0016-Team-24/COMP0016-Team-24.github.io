@@ -12,3 +12,13 @@ This week, I implemented the weather appearances into the Unity project. For a s
 <iframe width="560" height="315" src="https://www.youtube.com/embed/huLb1ZhosqY" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 I also modified the code so it calls the API every 10 minutes (value can be modified).
+
+## Kaloyan: Add animations for the bubbles
+
+For the bubbles to appear and disappear more smooth I had to add some animations. Usind the ones Tingmao made for the video player as an example, I created a [Animator](https://docs.unity3d.com/Manual/class-Animator.html) object to control them:
+
+<img src="/assets/images/bubbles-animator.png" class="center">
+
+And this is what it looked like in the end:
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/v8buqPh2VZc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
