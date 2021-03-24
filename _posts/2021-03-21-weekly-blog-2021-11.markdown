@@ -5,13 +5,40 @@ date: "2021-03-21T11:54:13+00:00"
 categories: weekly
 ---
 
+## Tingmao: Packaged AVS client
+
+Because compiling the AVS client takes a lot of time, I decided to distribute pre-compiled packages to our client in the form of zip files hosted on my S3 bucket.
+
+The goal is for the package to be as plug-and-play as possible. However as I mentioned last week that turns out to be hard. Therefore I decided that the user would need to install mingw and python themselves, and after that they can just run a batch file in my package.
+
+To achieve this, I changed all the absolute paths in the generated `AVSClientSDKConfig.json` to be relative, as well as modified `startsample.bat` to refer to the config with relative path.
+
+## Tingmao: Configuration file for unity client
+
+To allow changing the active avatar, skill endpoint and other configurations without re-compiling the unity project, I rewote the `config.cs` script to read configuration from `Assets/config.json` and converted the script into a component on `playermover` so that it can enable the selected avatar at runtime. I also created a configuration generator so that user can change the config without needing to manually modify JSON themselves. A sample config file is shown below:
+
+```json
+{
+	"domainName": "skill.comp0016.mww.moe",
+	"alexaResponseIP": "localhost",
+	"alexaResponsePort": 5000,
+	"avatar": 1,
+	"testClient": false,
+	"weatherLocation": "London"
+}
+```
+
+The config generation tool is a locally-runnable HTML page which looks like this:
+
+![A screenshot of the ConfigGen page](/assets/images/2021-11-configgen.png)
+
 ## Victoria: UI changes
 
 Earlier in the week, the client requested some UI changes. Firstly, to include branding in the interface and secondly, to adjust the view so the focus is on the upper body of the 3D avatar model to focus more on the lip syncing/head turning. I gave the client some sketches for ideas on how the brand could be shown:
 
 <img src="/assets/images/sketches.PNG" style="max-width: 100%; display: block; margin: 10px auto;">
 
-The table I decided to use is a free asset from the Unity store: [Low Poly Office Props](https://assetstore.unity.com/packages/3d/environments/low-poly-office-props-lite-131438). The material used to create a wood texture is from [here](https://assetstore.unity.com/packages/2d/textures-materials/wood/pbr-log-149788). The logo is added by creating an empty game object and adding Unity's [sprite renderer](https://docs.unity3d.com/Manual/class-SpriteRenderer.html) component to it. 
+The table I decided to use is a free asset from the Unity store: [Low Poly Office Props](https://assetstore.unity.com/packages/3d/environments/low-poly-office-props-lite-131438). The material used to create a wood texture is from [here](https://assetstore.unity.com/packages/2d/textures-materials/wood/pbr-log-149788). The logo is added by creating an empty game object and adding Unity's [sprite renderer](https://docs.unity3d.com/Manual/class-SpriteRenderer.html) component to it.
 
 In following discussions, the client asked for some items on the desk to give it more perspective so I used a few prefabs provided by the Low Poly Office Props asset. The client also requested the bubbles be more transparent and aligned better so I made these minor changes as well.
 
@@ -21,3 +48,49 @@ Here are some images to show the changes:
 
 <img src="/assets/images/ui_change_landscape.png" style="max-width:100%; display: block; margin: 10px auto;">
 <img src="/assets/images/ui_change_portrait.png" style="max-width:50%; display: block; margin: 10px auto;">
+
+## Tingmao: systemd service for the skill server
+
+To further simplify the deployment of the skill server, `configure.sh` now generates a systemd unit file like this:
+
+```ini
+[Unit]
+Description=Skill server
+After=network.target
+
+[Install]
+WantedBy=network.target
+
+[Service]
+Type=simple
+User=0
+Group=0
+ExecStart=(generated-at-config)/start.sh
+```
+
+and copy it to `/etc/systemd/system`. It will then run
+
+<pre>
+sudo systemctl daemon-reload
+sudo systemctl enable <i>service-name</i>
+sudo systemctl start <i>service-name</i>
+</pre>
+
+to make the server automatically start at startup.
+
+## Tingmao: User manual
+
+In addition to the developer-oriented README.md file, I also made a `user-manual.docx` to aid client setup. This document goes in more detail about the setup process and also contains links to pre-compiled unity executable and where to find software dependencies like MSYS/MinGW.
+
+<div style="max-width: 400px; display: block; margin: auto;">
+  <img src="/assets/images/2021-11-user-manual.svg" alt="Screenshot of the user manual">
+</div>
+
+## Tingmao: Unity unit testing
+
+I created a very simple [play mode test](https://docs.unity3d.com/Packages/com.unity.test-framework@1.1/manual/workflow-create-playmode-test.html) for the video player. It will send messages to the video player script and test if it plays/pauses/stops the video as expected.
+
+<video style="width: 100%;" controls>
+  <source src="https://mw-public-data.s3.eu-west-2.amazonaws.com/d03a9ddfb5863c2ec4a0eba0101dfb4d97f5500233374a3d2bfecc15acba7b0d.mp4" type="video/mp4">
+  <source src="https://mw-public-data.s3.eu-west-2.amazonaws.com/47d0621f988d8669bad498fec5758a881587c9f80d76b82e2390aebf1de542ac.webm" type="video/webm">
+</video>
