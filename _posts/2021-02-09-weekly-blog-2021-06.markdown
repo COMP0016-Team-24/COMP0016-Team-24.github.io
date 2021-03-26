@@ -61,3 +61,11 @@ After spending 4 hours trying to fix the python code I was not able to make any 
 In a meeting with the client last week, I demonstrated the movement with just the head and the client suggested I use a mix of both. For example if there are only slight rotations then only the head moves but if the avatar needs to rotate more, the body will rotate too. I was able to get this working but only through disabling the animator on the avatar game object as I am unsure why the avatar does not rotate its neck through `gameObject.transform.Rotate`.
 
 I also set up an Azure VM to deploy the Alexa API. For the most part, I was able to follow the [user manual](https://students.cs.ucl.ac.uk/2019/group24/index.html#appendices) from last year's group but there were a few extra steps needed such as adding an inbound rule.
+
+## Kaloyan: Detecting rooms on a floor plan
+
+After thorough research I did manage to find some existing solutions. However, none of these solutions were quite suitable for our case. The ones I found about detecting rooms in an architectural floor plan were too complex to implement in the given time slot ([example](https://www.researchgate.net/publication/220933144_A_System_to_Detect_Rooms_in_Architectural_Floor_Plan_Images), [example2](https://openaccess.thecvf.com/content_ICCV_2019/papers/Zeng_Deep_Floor_Plan_Recognition_Using_a_Multi-Task_Network_With_Room-Boundary-Guided_ICCV_2019_paper.pdf)). 
+
+The other option, I came up with, was to detect just the lines and their intersections and from the results, to calculate where the rooms are. However, in this case the solutions I found ([like this one](https://stackoverflow.com/questions/16665742/a-good-approach-for-detecting-lines-in-an-image) and [this one](https://stackoverflow.com/questions/45322630/how-to-detect-lines-in-opencv)) were either not quite accurate (detected a line twice or not detect it at all) or required too much processing power.
+
+As a final solution, I decided to try to develop my own algorithm for this problem.

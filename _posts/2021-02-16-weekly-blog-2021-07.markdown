@@ -10,3 +10,15 @@ categories: weekly
 Using the`Rotator.cs` class which Brandon created allowed me to rotate the avatar's head by doing `Rotator.Rotate()`. When getting the rotation of the avatar, it was not 0 when facing straight forwards so I had to store the starting angle and subtract that from the values so the avatar rotation values would be negative in one direction and positive in the other. Here is a demo:
 
 <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/ysCDocg1ctQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+## Kaloyan: Detecting rooms on a floor plan
+
+This week I developed my own algorithm of detecting rooms on a floor plan. Here is how it works:
+
+* It requires that the only black pixels are the walls and that there aren't any holes in the walls (e.g., doors, windowsm etc).
+
+* The rooms are stored as hashmaps - the keys are all the __y__ coordinates, the room contains, and the values are a list with the first and last __x__ coordinates contained in the room of the corresponding __y__ coordinate. This way all possible shapes of rooms can be stored.
+
+* The algorithm iterates through every pixel, line by line, and searches for white pixels. When it finds one, it stores it and continue iterating the current line until its end or a black pixel is found. This range of white pixels is now assigne to a room. The way this is done, is by checking the previous line for white pixels in the specified range. If one is found then the range is assigned to the same room as the found pixel [1]. If no white pixel is found or this is the first line, a new room is created and the range of pixels is assigned to it. 
+
+[1] For fast checking which room a pixel belongs to, an array with length __h\*w__ is created (__h__-height of the picture, __w__-width of the picture) to store which room is each pixel assigned to. Pixel __(x, y)__ would be indexed __(y\*h + x)__ in the array and it can easily be checked which room is it assigned to. When a range of white pixels and the room it belongs to are found, each element in the array, corresponding to a pixel in the range is updated with the room that is found. 

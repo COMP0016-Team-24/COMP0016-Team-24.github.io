@@ -10,3 +10,7 @@ categories: weekly
 Through some testing, I managed to fix the bug from last week. The bug was caused by changing the screen resolution after the application had started up and was fixed by unticking the 'run in background' option in the build settings. My code from last week only checked on startup if the screen resolution is landscape or portrait so it didn't change the cameras if screen resolution was changed when the application was running. I simply added an if-else check to see if the screen resolution had changed - if it does, the camera will switch accordingly.
 
 <img src="/assets/images/build_settings.png" class="center">
+
+## Kaloyan: Getting maps to show the route to each room
+
+This week I started working on ways to get maps with the route to each room on a floor plan, uploaded by the user, setting up the assistant, to be shown along with the speech directions given by the assistant. My first idea was to prompt thee user, setting up the assistant, to draw them in a GUI, however that seemed too time consuming and annoying for them. So, I decided to find a way to detect the rooms on the foor plan and develop an algorithm to calculate the best route to them. In order to achieve this, I started researching for existing libraries or algorithms that can help with this task.
