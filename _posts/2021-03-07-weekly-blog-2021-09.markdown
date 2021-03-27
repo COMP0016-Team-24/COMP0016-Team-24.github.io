@@ -27,3 +27,15 @@ eventually solved the problem.
 ## Victoria: Website updating
 
 This week, I updated the [website](https://students.cs.ucl.ac.uk/2020/group24/index.html) with our new requirements and added some more content to the home page - including a Gantt chart for our progress. I also added the personas, sketches and prototype from our HCI assignment and created a use case diagram and list.
+
+## Kaloyan: Getting the best route to each room
+
+Being able to detect where the rooms are, this week I started working on getting the best route to each room. The algorithm for this is quite simple.
+
+1. It uses objects, to represent each possible route, that consist of the pixels the current route has already passed by, length of the route and the staright line distance from the last pixel to the desired end of the route. These objects are kept sorted in a linked list, based on the sum of the length of the route and the remaining distance.
+
+2. It starts from the pixel where the assistant is and from the 9 pixels around it creates 9 objects.
+
+3. After the initial 9 objects are created, it takes the first one (they are sorted, so this is the one which has the smallest sum of length and distance) and creates new objects from the pixels around it that haven't been used. These objects contain the intial object's list of previous pixels and add the new pixels to it.
+
+4. Step 3 is repeated until an object with distance to the end 0 is created. This is assumed to be the best route.
