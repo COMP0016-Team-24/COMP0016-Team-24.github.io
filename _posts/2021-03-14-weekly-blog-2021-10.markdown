@@ -26,3 +26,21 @@ As for python, we could use something like [PyInstaller](https://www.pyinstaller
 Some months ago Brandon made the API server download video from YouTube when it needs to serve the video to the unity client. This has stopped working now (library throwing error) and frankly in my opinion, is just not necessary. I downloaded all 3 videos from YouTube to my computer, then uploaded them to my personal public S3 bucket, and updated the API server to use those URL instead. For example, the "about NTT Data" video now can be fetched from [https://mw-public-data.s3.eu-west-2.amazonaws.com/613ad8d53cc7695cf01e74ebdb813d4879fb37e55290186e2175440841df21e2/nttdata-about.mp4](https://mw-public-data.s3.eu-west-2.amazonaws.com/613ad8d53cc7695cf01e74ebdb813d4879fb37e55290186e2175440841df21e2/nttdata-about.mp4).
 
 For now I just coded unity to stream from this S3 bucket. If necessary we can look at embedding the video files as an asset later on, so that it doesn't need to be downloaded from network each time user wants to watch it.
+
+## Kaloyan: GUI for setting up the navigation
+
+This week I created a GUI for setting up the navigation feature:
+
+<img src="/assets/images/Navigation-gui-1.png" class="center">
+
+It prompts the user to upload a floor plan:
+
+<img src="/assets/images/Navigation-gui-2.png" class="center">
+
+<img src="/assets/images/Navigation-gui-3.png" class="center">
+
+and then to enter the names to each room:
+
+<img src="/assets/images/Navigation-gui-4.png" class="center">
+
+Then short 5 seconds videos are created showing the route to each room.
