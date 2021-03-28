@@ -19,7 +19,7 @@ Following a meeting with the client earlier in the week, I was asked to make the
 
 <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/nuV0vodrZnE" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-## Victoria: supporting landscape and horizontal orientations
+## Victoria: supporting landscape and portrait orientations
 
 A requirement the client had added was to ideally have the application be able to support both orientations. Since when the resolution of the screen is changed, Unity just crops the scene to fit the screen, when in portrait mode the view was very zoomed in and the speech bubbles would be cropped out. To fix this, I created another camera and moved it back. Then a script would identify if the screen is in portrait or landscape mode and activate the correct camera.
 
