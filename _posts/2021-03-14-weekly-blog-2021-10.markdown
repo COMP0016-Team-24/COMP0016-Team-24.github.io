@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "2021-10: Easier setup and video player fixes"
+title: "2021-10: Easier setup, video player fixes, and navigation configurator"
 date: "2021-03-14T01:09:25+00:00"
 categories: weekly
 ---

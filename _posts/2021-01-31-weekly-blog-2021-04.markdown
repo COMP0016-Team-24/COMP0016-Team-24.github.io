@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "2021-04: Continuing portrait mode support"
+title: "2021-04: Continuing portrait mode support and navigation maps"
 date: "2021-01-31T16:50:43+00:00"
 categories: weekly
 ---

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "2021-07: More face tracking and navigation"
+title: "2021-07: More face tracking and detecting rooms"
 date: "2021-02-16T23:00:32+00:00"
 categories: weekly
 ---
