@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Weekly development blog 2021-08"
+title: "2021-08: New avatar"
 date: "2021-02-28T23:32:48+00:00"
 categories: weekly
 ---

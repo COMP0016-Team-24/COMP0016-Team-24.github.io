@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Wrapping Up"
+title: "Wrapping Up: Client setup meeting"
 date: "2021-03-24T17:53:47+00:00"
 categories: dev
 ---

@@ -1,11 +1,11 @@
 ---
 layout: post
-title: "Weekly development blog 2020-48"
+title: "2020-48: Learning unity"
 date: "2020-11-29 19:14:52+00:00"
 categories: weekly
 ---
 
-PS. The "48" here means the 48th week of 2020.
+This is our first weekly development blog. The "48" here means the 48th week of 2020.
 
 This week, most of the team's focus was on learning unity, since none of us are familiar with it yet. Unity is used to build the project's avatar display front-end.
 

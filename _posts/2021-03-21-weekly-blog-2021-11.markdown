@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Weekly development blog 2021-11"
+title: "2021-11: More setup, configuration, and additional UI changes"
 date: "2021-03-21T11:54:13+00:00"
 categories: weekly
 ---

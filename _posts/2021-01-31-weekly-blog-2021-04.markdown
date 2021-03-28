@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Weekly development blog 2021-04"
+title: "2021-04: Continuing portrait mode support"
 date: "2021-01-31T16:50:43+00:00"
 categories: weekly
 ---

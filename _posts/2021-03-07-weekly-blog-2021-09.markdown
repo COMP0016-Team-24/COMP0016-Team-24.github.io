@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Weekly development blog 2021-09"
+title: "2021-09: Final Alexa client, some website edits and navigation"
 date: "2021-03-07T18:38:38+00:00"
 categories: weekly
 ---

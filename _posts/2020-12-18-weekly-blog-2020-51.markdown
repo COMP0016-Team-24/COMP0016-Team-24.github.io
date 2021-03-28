@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Weekly development blog 2020-51"
+title: "2020-51: .gitignore, project management, video player, background and menu screen"
 date: "2020-12-18T23:41:56+00:00"
 categories: weekly
 ---

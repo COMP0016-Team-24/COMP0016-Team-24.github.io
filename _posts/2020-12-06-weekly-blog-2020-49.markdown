@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Weekly development blog 2020-49"
+title: "2020-49: Continuing to learn unity and setting up Alexa test client"
 date: "2020-12-06 15:24:22+00:00"
 categories: weekly
 ---

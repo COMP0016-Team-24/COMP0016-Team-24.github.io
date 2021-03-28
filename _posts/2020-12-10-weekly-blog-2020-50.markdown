@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Weekly development blog 2020-50"
+title: "2020-50: Project website"
 date: "2020-12-10 22:15:35+00:00"
 categories: weekly
 ---
