@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "2021-11: More setup, configuration, and additional UI changes"
+title: "2021-11: More setup, configuration, integrating the navigation, and additional UI changes"
 date: "2021-03-21T11:54:13+00:00"
 categories: weekly
 ---
@@ -94,3 +94,9 @@ I created a very simple [play mode test](https://docs.unity3d.com/Packages/com.u
   <source src="https://mw-public-data.s3.eu-west-2.amazonaws.com/d03a9ddfb5863c2ec4a0eba0101dfb4d97f5500233374a3d2bfecc15acba7b0d.mp4" type="video/mp4">
   <source src="https://mw-public-data.s3.eu-west-2.amazonaws.com/47d0621f988d8669bad498fec5758a881587c9f80d76b82e2390aebf1de542ac.webm" type="video/webm">
 </video>
+
+## Kaloyan: Integrating the navigation feature
+
+This week I integrated the navigation feature with Unity so that the maps to the rooms can be shown to the user upon asking. For this purpose, I used the existing video player which already had nice animations and support for both landscape and portrait orientations. This is what it looked like in the end:
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/0wtZfA-5Iow" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
