@@ -1,8 +1,6 @@
 # See here for image contents: https://github.com/microsoft/vscode-dev-containers/tree/v0.145.0/containers/ruby/.devcontainer/base.Dockerfile
 
-# [Choice] Ruby version: 2, 2.7, 2.6, 2.5
-ARG VARIANT="2"
-FROM mcr.microsoft.com/vscode/devcontainers/ruby:0-${VARIANT}
+FROM mcr.microsoft.com/vscode/devcontainers/ruby:2
 
 # [Option] Install Node.js
 ARG INSTALL_NODE="true"
@@ -19,4 +17,5 @@ RUN if [ "${INSTALL_NODE}" = "true" ]; then su vscode -c "source /usr/local/shar
 # [Optional] Uncomment this line to install global node packages.
 # RUN su vscode -c "source /usr/local/share/nvm/nvm.sh && npm install -g <your-package-here>" 2>&1
 
-RUN gem install bundler jekyll
+RUN gem update --system && \
+    gem install bundler jekyll

@@ -37,13 +37,19 @@ Replace `1000` with your host UID. Your container must run with the same UID as 
 
 ### The wrong solution
 
-When you Google "pass audio inside docker", most of the result tells you to use `--device=/dev/snd:/dev/snd`. This is usually not the proper way to pass in audio, because it requires the container to get exclusive access to your audio hardware. In other words, if you use `--device` to pass `/dev/snd/*`, your app inside container won't work if you are also playing a music (or more likely for us, on a Teams call). Even if not, it may sometime still error with `Device or resource busy`, because your desktop "audio manager"&mdash;pulseaudio&mdash;will likely keep the device open for a short period after playing any sound.
+When you Google "pass audio inside docker", most of the result tells you to use `--device=/dev/snd:/dev/snd`. This is usually not the proper way to pass in audio, because in most cases it requires the container to get exclusive access to your audio hardware. In other words, if you use `--device` to pass `/dev/snd/*`, your app inside container won't work if you are also playing a music (or more likely for us, on a Teams call). Even if not, it may sometime still error with `Device or resource busy`, because your desktop "audio manager"&mdash;pulseaudio&mdash;will likely keep the device open for a short period after playing any sound.
 
 ### ALSA and PulseAudio
 
 Like most hardware, accessing audio on Linux involves both the kernel driver and a user-space library. ALSA is the kernel driver responsible for managing audio devices, while it also provides a set of user-space tools (such as `aplay`) and APIs for audio-playing applications.
 
 However, as is commonly seen on Linux, a device can only be open by one application at a time, and ALSA itself does not provide audio mixing capabilities which allows multiple apps to play or record at the same time. Therefore, most Linux desktop setup will run a "audio server" that is solely responsible for talking to the kernel ALSA interface, and the most common audio server is PulseAudio. Applications wanting to play audio should talk to PulseAudio, instead of opening ALSA devices under `/dev/snd` themselves.
+
+<div style="background-color: #eee; padding: 10px; margin: 20px 0;">
+
+<b>Update 2023-03-18</b>: Actually, the above is not completely true. While directly passing in the ALSA device without doing any other configuration probably wouldn't work, ALSA does have a feature&mdash;<a href="https://wiki.archlinux.org/title/Advanced_Linux_Sound_Architecture#Dmix">dmix</a>&mdash;that provides (software or hardware) audio mixing and allows multiple clients to use the same device. However this will require more configuration in both the host audio server and in the container. See <a href="https://github.com/COMP0016-Team-24/COMP0016-Team-24.github.io/issues/1">this GitHub issue</a> raised against this article.
+
+</div>
 
 To support older applications which directly uses ALSA library, and also make developer's life easier, the ALSA user-space library actually implements a plugin for PulseAudio that lets ALSA applications use a fake "pulse" device. Audio played or recorded from this device are actually passed to PulseAudio. This is why we don't need to expose `/dev/snd` to the container, and should instead expose our pulseaudio socket, which is usually located under `/run/user/1000/pulse`.
 
